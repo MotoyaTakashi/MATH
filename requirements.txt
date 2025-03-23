@@ -1,0 +1,32 @@
+# データ処理・分析
+pandas>=2.0.0
+numpy>=1.24.0
+openpyxl>=3.0.0  # Excelファイルの読み書き用
+
+# LLMクライアント
+# openai>=1.0.0
+openai==0.28
+google-genai # Google API用
+google-generativeai
+anthropic>=0.7.0  # Claude API用
+
+# Webアプリケーション
+streamlit>=1.30.0
+altair>=5.0.0  # データ可視化用
+
+# 環境変数管理
+python-dotenv>=1.0.0
+
+# 型ヒント
+typing-extensions>=4.0.0
+
+# 日付処理
+python-dateutil>=2.8.0
+
+# リクエスト処理
+requests>=2.31.0
+
+# vLLMサーバー関連（オプション）
+vllm>=0.2.0
+fastapi>=0.70.0
+uvicorn>=0.15.0
