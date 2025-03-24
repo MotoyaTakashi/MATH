@@ -123,7 +123,7 @@ def main():
         # GitHubのIssueへのリンク
         st.markdown("""
         ### フィードバック
-        🔔 [ご意見・ご要望はこちら](https://github.com/iishiken/LLMATCH/issues)
+        🔔 [ご意見・ご要望はこちら](https://github.com/MotoyaTakashi/MATH/issues)
         """)
         
         # LLMプロバイダーの選択
