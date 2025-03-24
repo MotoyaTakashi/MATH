@@ -109,12 +109,12 @@ def display_analysis_summary_streamlit(analyzer, analysis_columns):
 def main():
     # ページ設定 - アプリケーションのタイトルとレイアウトを設定
     st.set_page_config(
-        page_title="医療記録分析システム",
+        page_title="数理LLMモデル分析システム",
         page_icon="🏥",
         layout="wide"  # 画面を広く使用
     )
 
-    st.title("医療記録分析システム")
+    st.title("数理LLMモデル分析システム")
 
     # サイドバーの設定 - 分析に必要な基本設定を行うエリア
     with st.sidebar:
@@ -270,9 +270,9 @@ def main():
         # メインコンテンツエリア
         # Excelファイルのアップロード機能
         uploaded_file = st.file_uploader(
-            "医療記録Excelファイルをアップロード", 
+            "数理LLMモデルExcelファイルをアップロード", 
             type=['xlsx'],
-            help="分析対象の医療記録データをExcelファイル形式でアップロードしてください。"
+            help="分析対象の数理LLMモデルデータをExcelファイル形式でアップロードしてください。"
         )
 
         if uploaded_file is not None:
@@ -463,29 +463,29 @@ def main():
                                     help="分析結果をExcelファイルとしてダウンロードできます"
                                 )
 
-                # 個別の医療記録テキスト表示
+                # 個別の数理LLMモデルテキスト表示
                 if sample_id != "すべて":
-                    st.subheader(f"ID: {sample_id} の医療記録")
-                    st.write("選択された患者の医療記録の詳細を表示します")
+                    st.subheader(f"ID: {sample_id} の数理LLMモデル")
+                    st.write("選択された患者の数理LLMモデルの詳細を表示します")
                     
                     # 結合テキストがすでに保存されている場合はそれを使用
                     if 'result_df' in locals() and not result_df.empty and 'text' in result_df.columns:
                         sample_text = result_df.iloc[0]['text']
                         st.text_area(
-                            "医療記録", 
+                            "数理LLMモデル", 
                             sample_text, 
                             height=300,
-                            help="選択された患者の全ての医療記録を時系列で表示します"
+                            help="選択された患者の全ての数理LLMモデルを時系列で表示します"
                         )
                     else:
                         # 従来の方法でテキストを取得
                         combined_texts = analyzer.get_combined_texts(sample_id)
                         if combined_texts:
                             st.text_area(
-                                "医療記録", 
+                                "数理LLMモデル", 
                                 combined_texts[sample_id], 
                                 height=300,
-                                help="選択された患者の全ての医療記録を時系列で表示します"
+                                help="選択された患者の全ての数理LLMモデルを時系列で表示します"
                             )
     
     with tab2:
