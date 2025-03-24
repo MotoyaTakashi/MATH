@@ -1,4 +1,4 @@
-# 医療テキスト分析システム
+# 数理LLMモデル分析システム
 
 streamlitによる直感的なUI作成
 <img width="1030" alt="Image" src="https://github.com/user-attachments/assets/5695a8ae-3816-4e12-acc0-ab41d5404873" />
