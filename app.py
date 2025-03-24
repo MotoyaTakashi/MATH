@@ -304,7 +304,7 @@ def main():
                     "ID列を選択",
                     options=columns,
                     index=columns.index('ID') if 'ID' in columns else 0,
-                    help="患者IDが格納されている列を選択してください"
+                    help="モデルIDが格納されている列を選択してください"
                 )
             
             with col2:
@@ -349,13 +349,13 @@ def main():
                         help="実行したい分析の種類を選択してください。複数選択可能です。"
                     )
 
-                # 特定の患者IDの選択（一時的に無効化）
+                # 特定のモデルIDの選択（一時的に無効化）
                 # TODO: 将来的にサンプルID選択機能を復活させる
                 # with col2:
                 #     sample_id = st.selectbox(
                 #         "サンプルIDを選択（オプション）",
                 #         options=["すべて"] + list(analyzer.df[analyzer.column_mapping['id_column']].unique()),
-                #         help="特定の患者のデータのみを分析する場合は、該当のIDを選択してください。"
+                #         help="特定のモデルのデータのみを分析する場合は、該当のIDを選択してください。"
                 #     )
                 sample_id = "すべて"  # デフォルトで全データを分析
 
@@ -466,7 +466,7 @@ def main():
                 # 個別の数理LLMモデルテキスト表示
                 if sample_id != "すべて":
                     st.subheader(f"ID: {sample_id} の数理LLMモデル")
-                    st.write("選択された患者の数理LLMモデルの詳細を表示します")
+                    st.write("選択されたモデルの数理LLMモデルの詳細を表示します")
                     
                     # 結合テキストがすでに保存されている場合はそれを使用
                     if 'result_df' in locals() and not result_df.empty and 'text' in result_df.columns:
@@ -475,7 +475,7 @@ def main():
                             "数理LLMモデル", 
                             sample_text, 
                             height=300,
-                            help="選択された患者の全ての数理LLMモデルを時系列で表示します"
+                            help="選択されたモデルの全ての数理LLMモデルを時系列で表示します"
                         )
                     else:
                         # 従来の方法でテキストを取得
@@ -485,7 +485,7 @@ def main():
                                 "数理LLMモデル", 
                                 combined_texts[sample_id], 
                                 height=300,
-                                help="選択された患者の全ての数理LLMモデルを時系列で表示します"
+                                help="選択されたモデルの全ての数理LLMモデルを時系列で表示します"
                             )
     
     with tab2:
@@ -667,11 +667,11 @@ def main():
         
         with col1:
             num_patients = st.number_input(
-                "患者数",
+                "モデル数",
                 min_value=1,
                 max_value=1000,
                 value=3,
-                help="生成する患者データの数を指定してください"
+                help="生成するモデルデータの数を指定してください"
             )
         
         with col2:
@@ -703,9 +703,9 @@ def main():
                     with col1:
                         st.metric("総レコード数", len(df))
                     with col2:
-                        st.metric("ユニーク患者数", df['ID'].nunique())
+                        st.metric("ユニークモデル数", df['ID'].nunique())
                     with col3:
-                        st.metric("平均レコード数/患者", round(len(df) / df['ID'].nunique(), 1))
+                        st.metric("平均レコード数/モデル", round(len(df) / df['ID'].nunique(), 1))
                     
                     # データプレビュー
                     st.subheader("データプレビュー")

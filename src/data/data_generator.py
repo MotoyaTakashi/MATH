@@ -72,12 +72,12 @@ class MedicalDataGenerator:
             return template.format(bmi=round(random.uniform(30, 40), 1))
 
     def generate_patient_records(self, num_patients=50):
-        """患者記録を生成"""
+        """モデル記録を生成"""
         records = []
         start_date = datetime(2023, 1, 1)
 
         for patient_id in range(1, num_patients + 1):
-            # 各患者の記録数をランダムに決定
+            # 各モデルの記録数をランダムに決定
             num_records = random.randint(3, 7)
             dates = self._generate_date_sequence(start_date, num_records)
             
